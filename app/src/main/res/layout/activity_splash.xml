@@ -9,11 +9,11 @@
     tools:context=".SplashActivity">
 
     <TextView
-        android:id="@+id/tv_app_name"
+        android:id="@+id/tvAppName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/app_name"
+        android:text="GIVE &amp; RECEIVE"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="@dimen/splash_screen_title_text_size"/>
