@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "764295798714",
+    "project_id": "give-recive",
+    "storage_bucket": "give-recive.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764295798714:android:fba30cc942f633b813c783",
+        "android_client_info": {
+          "package_name": "com.example.givereceive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764295798714-r69nb0gn70h94ak52s3d09enl8qs4jcn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7CGESZWE9ikNqCbWmR1xJ_P3bF4PByxM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "764295798714-r69nb0gn70h94ak52s3d09enl8qs4jcn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,4 @@
-package com.example.givereceive
+package com.example.givereceive.main.activities
 
 import android.content.Intent
 import android.graphics.Typeface
@@ -26,7 +26,7 @@ class SplashActivity : AppCompatActivity() {
         binding?.tvAppName?.typeface = typeFace
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this,IntroActivity::class.java))
+            startActivity(Intent(this, IntroActivity::class.java))
             finish()
         }, 2500)
 

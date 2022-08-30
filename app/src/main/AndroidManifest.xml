@@ -14,11 +14,24 @@
         android:theme="@style/Theme.GiveReceive"
         tools:targetApi="31">
         <activity
-            android:name=".IntroActivity"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/Theme.GiveReceive.NoActionBar"/>
+            android:name=".BaseActivity"
+            android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".main.activities.SignInActivity"
+            android:exported="false"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.GiveReceive.NoActionBar" />
+        <activity
+            android:name=".main.activities.SignUpActivity"
+            android:exported="false"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.GiveReceive.NoActionBar" />
+        <activity
+            android:name=".main.activities.IntroActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/Theme.GiveReceive.NoActionBar" />
+        <activity
+            android:name=".main.activities.SplashActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.GiveReceive.NoActionBar">
@@ -29,7 +42,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".main.activities.MainActivity"
             android:exported="true" />
     </application>
 

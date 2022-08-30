@@ -1,7 +1,8 @@
-package com.example.givereceive
+package com.example.givereceive.main.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.givereceive.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
