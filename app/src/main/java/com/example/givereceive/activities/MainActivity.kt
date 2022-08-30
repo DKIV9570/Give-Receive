@@ -1,4 +1,4 @@
-package com.example.givereceive.main.activities
+package com.example.givereceive.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

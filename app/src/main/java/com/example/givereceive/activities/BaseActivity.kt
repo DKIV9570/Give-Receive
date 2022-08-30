@@ -1,8 +1,6 @@
 package com.example.givereceive.activities
 
 import android.app.Dialog
-import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -10,7 +8,6 @@ import android.os.Looper
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.givereceive.R
-import com.example.givereceive.main.activities.IntroActivity
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.dialog_progress.*

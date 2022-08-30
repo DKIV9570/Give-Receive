@@ -1,4 +1,4 @@
-package com.example.givereceive.main.activities
+package com.example.givereceive.activities
 
 import android.content.Intent
 import android.graphics.Typeface
