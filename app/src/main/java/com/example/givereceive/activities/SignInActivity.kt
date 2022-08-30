@@ -6,6 +6,8 @@ import android.text.TextUtils
 import android.view.WindowManager
 import android.widget.Toast
 import com.example.givereceive.R
+import com.example.givereceive.firebase.FirestoreClass
+import com.example.givereceive.models.User
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.activity_sign_in.et_email_sign_in
@@ -27,6 +29,12 @@ class SignInActivity : BaseActivity() {
         setContentView(R.layout.activity_sign_in)
 
         setupActionBar()
+    }
+
+    fun signInSuccess(user:User){
+        hideProgressDialog()
+        startActivity(Intent(this,MainActivity::class.java))
+        finish()
     }
 
     private fun setupActionBar(){
@@ -51,16 +59,17 @@ class SignInActivity : BaseActivity() {
             showProgressDialog(resources.getString(R.string.please_wait))
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
-                    hideProgressDialog()
+
                     if (task.isSuccessful) {
                         // Calling the FirestoreClass signInUser function to get the data of user from database.
 //                        FirestoreClass().loadUserData(this@SignInActivity)
+                        FirestoreClass().signInUser(this)
                         Toast.makeText(
                             this@SignInActivity,
                             "Successful!",
                             Toast.LENGTH_LONG
                         ).show()
-                        startActivity(Intent(this,MainActivity::class.java))
+
                     } else {
                         Toast.makeText(
                             this@SignInActivity,
