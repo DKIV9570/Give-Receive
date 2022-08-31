@@ -63,7 +63,7 @@ class SignInActivity : BaseActivity() {
                     if (task.isSuccessful) {
                         // Calling the FirestoreClass signInUser function to get the data of user from database.
 //                        FirestoreClass().loadUserData(this@SignInActivity)
-                        FirestoreClass().signInUser(this)
+                        FirestoreClass().loadUserData(this)
                         Toast.makeText(
                             this@SignInActivity,
                             "Successful!",
