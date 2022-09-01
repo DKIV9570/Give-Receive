@@ -2,10 +2,9 @@ package com.example.givereceive.firebase
 
 import android.app.Activity
 import android.util.Log
-import com.example.givereceive.activities.MainActivity
-import com.example.givereceive.activities.MyProfileActivity
-import com.example.givereceive.activities.SignInActivity
-import com.example.givereceive.activities.SignUpActivity
+import android.widget.Toast
+import com.example.givereceive.activities.*
+import com.example.givereceive.models.Post
 import com.example.givereceive.models.User
 import com.example.givereceive.utils.Constants
 import com.google.firebase.auth.FirebaseAuth
@@ -24,6 +23,31 @@ class FirestoreClass {
             }.addOnFailureListener {
                 e ->
                 Log.e(activity.javaClass.simpleName,"Error writing documents")
+            }
+    }
+
+    fun createPost(activity: CreatePostActivity, post:Post){
+        mFireStore.collection(Constants.POSTS)
+            .document()
+            .set(post, SetOptions.merge())
+            .addOnSuccessListener {
+                activity.postCreatedSuccessfully()
+            }.addOnFailureListener {
+                exception->
+                activity.hideProgressDialog()
+            }
+    }
+
+    fun updateUserProfileData(activity: MyProfileActivity, userHashMap: HashMap<String,Any>){
+        mFireStore.collection(Constants.USERS)
+            .document(getCurrentUserId())
+            .update(userHashMap)
+            .addOnSuccessListener {
+                Log.i(activity.javaClass.simpleName,"Profile updated successfully")
+                activity.profileUpdateSuccess()
+            }.addOnFailureListener {
+                e->
+                activity.hideProgressDialog()
             }
     }
 

@@ -34,4 +34,13 @@
     <string name="my_profile">My Profile</string>
 
 
+    <string name="create_Post_title">Create Post</string>
+    <string name="create">CREATE</string>
+    <string name="Post_title">Post Title</string>
+    <string name="Post_detail">Post Detail</string>
+
+    <string name="Give_list">Give List</string>
+    <string name="Receive_list">Receive List</string>
+
+
 </resources>
