@@ -25,6 +25,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     private lateinit var mUserName: String
+    private lateinit var mUserID: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         window.setFlags(
@@ -42,6 +43,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         fab_create_post.setOnClickListener{
             val intent = Intent(this,CreatePostActivity::class.java)
             intent.putExtra(Constants.NAME,mUserName)
+            intent.putExtra(Constants.ID,mUserID)
             startActivity(intent)
         }
     }
@@ -101,6 +103,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     fun updateNavigationUserDetails(user: User) {
 
         mUserName = user.name
+        mUserID = user.id
 
         Glide
             .with(this)

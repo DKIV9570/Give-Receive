@@ -13,6 +13,7 @@ object Constants {
     const val POSTS: String = "posts"
     const val IMAGE: String = "image"
     const val NAME: String = "name"
+    const val ID: String = "id"
     const val MOBILE: String = "mobile"
 
     const val READ_STORAGE_PERMISSION_CODE = 1

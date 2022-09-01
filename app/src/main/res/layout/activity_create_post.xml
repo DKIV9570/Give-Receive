@@ -59,7 +59,7 @@
                         android:layout_marginTop="@dimen/create_post_til_marginTop">
 
                         <androidx.appcompat.widget.AppCompatEditText
-                            android:id="@+id/et_post_name"
+                            android:id="@+id/et_post_title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/Post_title"
@@ -73,7 +73,6 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_marginTop="10sp"
-                    android:id="@+id/et_post_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="@dimen/custom_min_height"
@@ -81,6 +80,7 @@
                     android:hint="@string/Post_detail">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_post_content"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:lineSpacingExtra="2dp"
@@ -90,13 +90,13 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_marginTop="10sp"
-                    android:id="@+id/et_give_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:counterEnabled="true"
                     android:hint="@string/Give_list">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_give_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         />
@@ -105,13 +105,13 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_marginTop="10sp"
-                    android:id="@+id/et_receive_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:counterEnabled="true"
                     android:hint="@string/Receive_list">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_receive_list"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         />

@@ -4,6 +4,8 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class Post (
+    var postId: String = "",
+    var userId: String = "",
     val title: String = "",
     val image: String = "",
     val createdBy: String = "",
@@ -16,12 +18,16 @@ data class Post (
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
+        parcel.readString()!!,
+        parcel.readString()!!,
         parcel.createStringArrayList()!!,
         parcel.createStringArrayList()!!
     ) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int)  = with(parcel){
+        parcel.writeString(postId)
+        parcel.writeString(userId)
         parcel.writeString(title)
         parcel.writeString(image)
         parcel.writeString(createdBy)
