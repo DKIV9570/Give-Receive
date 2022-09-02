@@ -79,6 +79,10 @@ open class PostItemsAdapter(private val context: Context,
         fun onClick(position: Int,model:Post)
     }
 
+    fun setOnClickListener(onClickListener:OnClickListener){
+        this.onClickListener = onClickListener
+    }
+
     override fun getItemCount(): Int {
         return list.size
     }

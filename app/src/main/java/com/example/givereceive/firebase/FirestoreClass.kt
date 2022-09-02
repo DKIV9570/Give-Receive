@@ -25,6 +25,24 @@ class FirestoreClass {
             }
     }
 
+    fun getPostDetail(activity: PostDetailActivity, postId: String){
+
+        mFireStore.collection(Constants.POSTS)
+            .document(postId)
+            .get()
+            .addOnSuccessListener {
+                    document ->
+                Log.i(activity.javaClass.simpleName, document.toString())
+
+                //pass post to detail
+                activity.postDetails(document.toObject(Post::class.java)!!)
+
+            }.addOnFailureListener {
+                activity.hideProgressDialog()
+                Log.e(activity.javaClass.simpleName,"Error when loading post detail")
+            }
+    }
+
     fun createPost(activity: CreatePostActivity, post:Post){
         mFireStore.collection(Constants.POSTS)
             .document()

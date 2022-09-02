@@ -70,6 +70,15 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
             val adapter = PostItemsAdapter(this, postsList)
             rv_posts_list.adapter = adapter
+
+            adapter.setOnClickListener(object: PostItemsAdapter.OnClickListener{
+                override fun onClick(position: Int, model: Post) {
+                    val intent: Intent = Intent(this@MainActivity,PostDetailActivity::class.java)
+                    intent.putExtra(Constants.POST_ID, model.postId)
+                    startActivity(intent)
+                }
+            })
+
         }else{
             rv_posts_list.visibility = View.GONE
             tv_no_posts_available.visibility = View.VISIBLE

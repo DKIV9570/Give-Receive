@@ -71,7 +71,9 @@
     <dimen name="item_post_created_by_text_size">14sp</dimen>
     <dimen name="item_post_divider_marginTop">5dp</dimen>
     <dimen name="item_post_divider_height">0.3dp</dimen>
-    <dimen name="task_list_content_padding">10dp</dimen>
+    <dimen name="post_detail_content_padding">10dp</dimen>
     <dimen name="custom_min_height">200dp</dimen>
+
+    <dimen name="post_detail_image_size">200dp</dimen>
 
 </resources>

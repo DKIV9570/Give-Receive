@@ -15,4 +15,5 @@ class ToDoList {
     // todo 5. share to social media
     // todo 6. Google map view for nearby posts
     // todo 7. chatting system
+    // todo. My posts with delete button
 }
