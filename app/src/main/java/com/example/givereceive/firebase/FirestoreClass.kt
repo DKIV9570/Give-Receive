@@ -2,7 +2,6 @@ package com.example.givereceive.firebase
 
 import android.app.Activity
 import android.util.Log
-import android.widget.Toast
 import com.example.givereceive.activities.*
 import com.example.givereceive.models.Post
 import com.example.givereceive.models.User
@@ -38,6 +37,24 @@ class FirestoreClass {
             }
     }
 
+    fun getPostsList(activity: MainActivity){
+        //TODO also search feature by whereArrayContains
+        mFireStore.collection(Constants.POSTS)
+            .get()
+            .addOnSuccessListener {
+                document ->
+                Log.i(activity.javaClass.simpleName, document.documents.toString())
+                val postList:ArrayList<Post> = ArrayList()
+                for(i in document.documents){
+                    val post = i.toObject(Post::class.java)
+                    post!!.postId = i.id
+                    postList.add(post)
+                }
+
+                activity.populatePostsListToUI(postList)
+            }
+    }
+
     fun updateUserProfileData(activity: MyProfileActivity, userHashMap: HashMap<String,Any>){
         mFireStore.collection(Constants.USERS)
             .document(getCurrentUserId())
@@ -51,7 +68,7 @@ class FirestoreClass {
             }
     }
 
-    fun loadUserData(activity: Activity){
+    fun loadUserData(activity: Activity, readPostsList:Boolean = false){
         mFireStore.collection(Constants.USERS)
             .document(getCurrentUserId())
             .get()
@@ -63,7 +80,7 @@ class FirestoreClass {
                         activity.signInSuccess(loggedInUser)
                     }
                     is MainActivity -> {
-                        activity.updateNavigationUserDetails(loggedInUser)
+                        activity.updateNavigationUserDetails(loggedInUser, readPostsList)
                     }
                     is MyProfileActivity -> {
                         activity.setUserDataInUI(loggedInUser)

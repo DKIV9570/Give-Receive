@@ -1,21 +1,29 @@
 package com.example.givereceive.activities
 
+import android.app.ActionBar
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.view.WindowManager
+import android.widget.TextView
 import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.givereceive.R
+import com.example.givereceive.adapters.PostItemsAdapter
 import com.example.givereceive.firebase.FirestoreClass
+import com.example.givereceive.models.Post
 import com.example.givereceive.models.User
 import com.example.givereceive.utils.Constants
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -38,13 +46,32 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         setupActionBar()
         nav_view.setNavigationItemSelectedListener(this)
 
-        FirestoreClass().loadUserData(this)
+        FirestoreClass().loadUserData(this,true)
 
         fab_create_post.setOnClickListener{
             val intent = Intent(this,CreatePostActivity::class.java)
             intent.putExtra(Constants.NAME,mUserName)
             intent.putExtra(Constants.ID,mUserID)
             startActivity(intent)
+        }
+    }
+
+
+    fun populatePostsListToUI(postsList:ArrayList<Post>){
+        hideProgressDialog()
+
+        if(postsList.size > 0){
+            rv_posts_list.visibility = View.VISIBLE
+            tv_no_posts_available.visibility = View.GONE
+
+            rv_posts_list.layoutManager = LinearLayoutManager(this)
+            rv_posts_list.setHasFixedSize(true)
+
+            val adapter = PostItemsAdapter(this, postsList)
+            rv_posts_list.adapter = adapter
+        }else{
+            rv_posts_list.visibility = View.GONE
+            tv_no_posts_available.visibility = View.VISIBLE
         }
     }
 
@@ -100,7 +127,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     }
 
-    fun updateNavigationUserDetails(user: User) {
+    fun updateNavigationUserDetails(user: User, readPostsList: Boolean) {
 
         mUserName = user.name
         mUserID = user.id
@@ -113,5 +140,23 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             .into(iv_user_image)
 
         tv_username.text = user.name
+
+        if(readPostsList){
+            showProgressDialog(resources.getString(R.string.please_wait))
+            FirestoreClass().getPostsList(this)
+        }
     }
+
+    fun createTextView(content:String):TextView{
+        val textView = TextView(this)
+        textView.setLayoutParams(
+            ActionBar.LayoutParams(
+                ActionBar.LayoutParams.FILL_PARENT,
+                ActionBar.LayoutParams.WRAP_CONTENT
+            )
+        )
+        textView.setText(content)
+        return textView
+    }
+
 }
