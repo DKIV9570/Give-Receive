@@ -44,11 +44,12 @@ open class PostItemsAdapter(private val context: Context,
                 tag.text = item
                 val layoutParams = LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
+                    ViewGroup.LayoutParams.MATCH_PARENT
                 )
                 layoutParams.setMargins(10, 10, 10, 10) //4个参数按顺序分别是左上右下
+                tag.setPadding(2,2,2,2)
                 tag.setLayoutParams(layoutParams)
-                tag.setBackgroundResource(R.drawable.shape_button_rounded)
+                tag.setBackgroundResource(R.drawable.give_tag)
                 holder.itemView.ll_give_list.addView(tag)
             }
 
@@ -57,12 +58,13 @@ open class PostItemsAdapter(private val context: Context,
                 tag.text = item
                 val layoutParams = LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
+                    ViewGroup.LayoutParams.MATCH_PARENT
                 )
                 layoutParams.setMargins(10, 10, 10, 10) //4个参数按顺序分别是左上右下
                 tag.setLayoutParams(layoutParams)
-                tag.setBackgroundResource(R.drawable.shape_button_rounded)
-                holder.itemView.ll_give_list.addView(tag)
+                tag.setPadding(2,2,2,2)
+                tag.setBackgroundResource(R.drawable.receive_tag)
+                holder.itemView.ll_receive_list.addView(tag)
             }
 
             holder.itemView.setOnClickListener{

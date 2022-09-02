@@ -3,13 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/27695/AndroidStudioProjects/GiveReceive/app/src/main/res/drawable-v24/Receive_tag.xml" value="0.109" />
         <entry key="..\:/Users/27695/AndroidStudioProjects/GiveReceive/app/src/main/res/drawable-v24/ic_black_color_back_24dp.xml" value="0.1" />
         <entry key="..\:/Users/27695/AndroidStudioProjects/GiveReceive/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.109" />
         <entry key="..\:/Users/27695/AndroidStudioProjects/GiveReceive/app/src/main/res/drawable-v24/white_border_shape_button_rounded.xml" value="0.1" />
+        <entry key="..\:/Users/27695/AndroidStudioProjects/GiveReceive/app/src/main/res/drawable/give_tag.xml" value="0.109" />
         <entry key="..\:/Users/27695/AndroidStudioProjects/GiveReceive/app/src/main/res/drawable/ic_action_navigation_menu.xml" value="0.109" />
         <entry key="..\:/Users/27695/AndroidStudioProjects/GiveReceive/app/src/main/res/drawable/ic_launcher_background.xml" value="0.109" />
         <entry key="..\:/Users/27695/AndroidStudioProjects/GiveReceive/app/src/main/res/drawable/ic_vector_add_24dp.xml" value="0.1" />
         <entry key="..\:/Users/27695/AndroidStudioProjects/GiveReceive/app/src/main/res/drawable/nav_header_main_background.xml" value="0.1" />
+        <entry key="..\:/Users/27695/AndroidStudioProjects/GiveReceive/app/src/main/res/drawable/receive_tag.xml" value="0.109" />
         <entry key="..\:/Users/27695/AndroidStudioProjects/GiveReceive/app/src/main/res/drawable/shape_button_rounded.xml" value="0.1" />
         <entry key="..\:/Users/27695/AndroidStudioProjects/GiveReceive/app/src/main/res/layout-v23/activity_intro.xml" value="0.18743667679837892" />
         <entry key="..\:/Users/27695/AndroidStudioProjects/GiveReceive/app/src/main/res/layout-v23/app_bar_main.xml" value="0.335" />
