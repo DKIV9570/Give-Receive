@@ -147,16 +147,5 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         }
     }
 
-    fun createTextView(content:String):TextView{
-        val textView = TextView(this)
-        textView.setLayoutParams(
-            ActionBar.LayoutParams(
-                ActionBar.LayoutParams.FILL_PARENT,
-                ActionBar.LayoutParams.WRAP_CONTENT
-            )
-        )
-        textView.setText(content)
-        return textView
-    }
 
 }

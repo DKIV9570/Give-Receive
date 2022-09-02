@@ -4,11 +4,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.givereceive.R
-import com.example.givereceive.activities.MainActivity
 import com.example.givereceive.models.Post
 import kotlinx.android.synthetic.main.activity_my_profile.*
 import kotlinx.android.synthetic.main.item_post.view.*
@@ -39,9 +39,31 @@ open class PostItemsAdapter(private val context: Context,
             holder.itemView.tv_name.text = model.title
             holder.itemView.tv_created_by.text = "Author: ${model.createdBy}"
 
-//            for(item in model.giveList){
-//                val tag = createTextView(item)
-//            }
+            for(item in model.giveList){
+                val tag = TextView(holder.itemView.context)
+                tag.text = item
+                val layoutParams = LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+                layoutParams.setMargins(10, 10, 10, 10) //4个参数按顺序分别是左上右下
+                tag.setLayoutParams(layoutParams)
+                tag.setBackgroundResource(R.drawable.shape_button_rounded)
+                holder.itemView.ll_give_list.addView(tag)
+            }
+
+            for(item in model.receiveList){
+                val tag = TextView(holder.itemView.context)
+                tag.text = item
+                val layoutParams = LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+                layoutParams.setMargins(10, 10, 10, 10) //4个参数按顺序分别是左上右下
+                tag.setLayoutParams(layoutParams)
+                tag.setBackgroundResource(R.drawable.shape_button_rounded)
+                holder.itemView.ll_give_list.addView(tag)
+            }
 
             holder.itemView.setOnClickListener{
                 if(onClickListener != null){
