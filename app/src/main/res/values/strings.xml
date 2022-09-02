@@ -36,6 +36,7 @@
 
     <string name="create_Post_title">Create Post</string>
     <string name="create">CREATE</string>
+    <string name="search">SEARCH</string>
     <string name="Post_title">Post Title</string>
     <string name="Post_detail">Post Detail</string>
 

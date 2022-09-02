@@ -73,6 +73,25 @@ class FirestoreClass {
             }
     }
 
+    fun getSearchPostsList(activity: MainActivity,give:String,receive:String){
+        //TODO also search feature by whereArrayContains
+        mFireStore.collection(Constants.POSTS)
+            .whereArrayContains("giveList",give)
+            .get()
+            .addOnSuccessListener {
+                    document ->
+                Log.i(activity.javaClass.simpleName, document.documents.toString())
+                val postList:ArrayList<Post> = ArrayList()
+                for(i in document.documents){
+                    val post = i.toObject(Post::class.java)
+                    post!!.postId = i.id
+                    postList.add(post)
+                }
+
+                activity.populatePostsListToUI(postList)
+            }
+    }
+
     fun updateUserProfileData(activity: MyProfileActivity, userHashMap: HashMap<String,Any>){
         mFireStore.collection(Constants.USERS)
             .document(getCurrentUserId())

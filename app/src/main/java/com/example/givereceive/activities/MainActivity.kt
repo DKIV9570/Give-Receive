@@ -55,6 +55,11 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             intent.putExtra(Constants.ID,mUserID)
             startActivityForResult(intent, CREATE_POST_REQUEST_CODE)
         }
+
+        fab_search_post.setOnClickListener{
+            val intent = Intent(this,SearchActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 
