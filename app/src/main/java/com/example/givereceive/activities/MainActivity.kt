@@ -30,6 +30,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     companion object {
         const val MY_PROFILE_REQUEST_CODE: Int = 11
+        const val CREATE_POST_REQUEST_CODE: Int = 12
     }
 
     private lateinit var mUserName: String
@@ -52,7 +53,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             val intent = Intent(this,CreatePostActivity::class.java)
             intent.putExtra(Constants.NAME,mUserName)
             intent.putExtra(Constants.ID,mUserID)
-            startActivity(intent)
+            startActivityForResult(intent, CREATE_POST_REQUEST_CODE)
         }
     }
 
@@ -103,6 +104,9 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         super.onActivityResult(requestCode, resultCode, data)
         if(resultCode == Activity.RESULT_OK && requestCode == MY_PROFILE_REQUEST_CODE){
             FirestoreClass().loadUserData(this)
+        }else if(resultCode == Activity.RESULT_OK
+            && requestCode == CREATE_POST_REQUEST_CODE){
+            FirestoreClass().getPostsList(this)
         }else{
             Log.e("cancalled","Cancalled")
         }

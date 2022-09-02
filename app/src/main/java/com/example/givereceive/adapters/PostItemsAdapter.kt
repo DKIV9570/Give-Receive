@@ -46,7 +46,7 @@ open class PostItemsAdapter(private val context: Context,
                     ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.MATCH_PARENT
                 )
-                layoutParams.setMargins(10, 10, 10, 10) //4个参数按顺序分别是左上右下
+                layoutParams.setMargins(10, 10, 10, 10)
                 tag.setPadding(2,2,2,2)
                 tag.setLayoutParams(layoutParams)
                 tag.setBackgroundResource(R.drawable.give_tag)
@@ -60,7 +60,7 @@ open class PostItemsAdapter(private val context: Context,
                     ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.MATCH_PARENT
                 )
-                layoutParams.setMargins(10, 10, 10, 10) //4个参数按顺序分别是左上右下
+                layoutParams.setMargins(10, 10, 10, 10)
                 tag.setLayoutParams(layoutParams)
                 tag.setPadding(2,2,2,2)
                 tag.setBackgroundResource(R.drawable.receive_tag)

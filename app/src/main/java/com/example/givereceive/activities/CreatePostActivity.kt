@@ -121,6 +121,8 @@ class CreatePostActivity : BaseActivity() {
 
     fun postCreatedSuccessfully(){
         hideProgressDialog()
+
+        setResult(Activity.RESULT_OK)
         finish()
     }
 
