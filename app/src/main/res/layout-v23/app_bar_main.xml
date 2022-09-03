@@ -22,25 +22,24 @@
 
     <include layout="@layout/content_main" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_create_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:background="@drawable/nav_header_main_background"
-        android:backgroundTint="@color/colorAccent"
-        app:rippleColor="@color/colorAccent"
-        app:srcCompat="@drawable/ic_vector_add_24dp" />
+        android:text="@string/create"
+        android:theme="@style/MyMaterialTheme"
+        app:icon="@drawable/ic_vector_add_24dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_search_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
         android:layout_margin="@dimen/fab_margin"
-        android:background="@drawable/nav_header_main_background"
-        app:backgroundTint="#FFF3A6"
-        app:rippleColor="@color/colorAccent"
-        app:srcCompat="@drawable/ic_baseline_search_24" />
+        android:text="@string/search"
+        android:theme="@style/MyMaterialTheme"
+        app:icon="@drawable/ic_baseline_search_24" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

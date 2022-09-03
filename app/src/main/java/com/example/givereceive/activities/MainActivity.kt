@@ -31,6 +31,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     companion object {
         const val MY_PROFILE_REQUEST_CODE: Int = 11
         const val CREATE_POST_REQUEST_CODE: Int = 12
+        const val SEARCH_REQUEST_CODE: Int = 13
     }
 
     private lateinit var mUserName: String
@@ -58,7 +59,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
         fab_search_post.setOnClickListener{
             val intent = Intent(this,SearchActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, SEARCH_REQUEST_CODE)
         }
     }
 
@@ -121,6 +122,10 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         }else if(resultCode == Activity.RESULT_OK
             && requestCode == CREATE_POST_REQUEST_CODE){
             FirestoreClass().getPostsList(this)
+        }else if(resultCode == Activity.RESULT_OK
+            && requestCode == SEARCH_REQUEST_CODE){
+            val postList = data!!.getParcelableArrayListExtra<Post>(Constants.SEARCH_RESULT)
+            populatePostsListToUI(postList!!)
         }else{
             Log.e("cancalled","Cancalled")
         }

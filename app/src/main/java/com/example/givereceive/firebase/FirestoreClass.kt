@@ -56,7 +56,6 @@ class FirestoreClass {
     }
 
     fun getPostsList(activity: MainActivity){
-        //TODO also search feature by whereArrayContains
         mFireStore.collection(Constants.POSTS)
             .get()
             .addOnSuccessListener {
@@ -73,8 +72,7 @@ class FirestoreClass {
             }
     }
 
-    fun getSearchPostsList(activity: MainActivity,give:String,receive:String){
-        //TODO also search feature by whereArrayContains
+    fun searchPostByGive(activity: SearchActivity, give: String){
         mFireStore.collection(Constants.POSTS)
             .whereArrayContains("giveList",give)
             .get()
@@ -87,8 +85,24 @@ class FirestoreClass {
                     post!!.postId = i.id
                     postList.add(post)
                 }
+                activity.SearchSuccessfully(postList)
+            }
+    }
 
-                activity.populatePostsListToUI(postList)
+    fun searchPostByReceive(activity: SearchActivity, receive: String){
+        mFireStore.collection(Constants.POSTS)
+            .whereArrayContains("receiveList",receive)
+            .get()
+            .addOnSuccessListener {
+                    document ->
+                Log.i(activity.javaClass.simpleName, document.documents.toString())
+                val postList:ArrayList<Post> = ArrayList()
+                for(i in document.documents){
+                    val post = i.toObject(Post::class.java)
+                    post!!.postId = i.id
+                    postList.add(post)
+                }
+                activity.SearchSuccessfully(postList)
             }
     }
 

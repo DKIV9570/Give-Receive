@@ -37,11 +37,16 @@
     <string name="create_Post_title">Create Post</string>
     <string name="create">CREATE</string>
     <string name="search">SEARCH</string>
+    <string name="searchby_give">SEARCH GIVE TAG</string>
+    <string name="searchby_receive">SEARCH RECEIVE TAG</string>
     <string name="Post_title">Post Title</string>
     <string name="Post_detail">Post Detail</string>
 
     <string name="Give_list">Give List</string>
     <string name="Receive_list">Receive List</string>
+
+    <string name="Give_tag">Give Tag</string>
+    <string name="Receive_tag">Receive Tag</string>
 
 
 </resources>
