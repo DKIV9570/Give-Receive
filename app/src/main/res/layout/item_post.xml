@@ -1,84 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView
-    android:id="@+id/cv_post_card"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cv_post_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/white_border_shape_button_rounded"
-    android:elevation="@dimen/card_view_elevation"
-    android:layout_marginTop="10dp"
-    android:layout_marginStart="10dp"
-    android:layout_marginEnd="10dp"
-    android:layout_marginBottom="0dp"
-    app:cardCornerRadius="@dimen/card_view_corner_radius">
+    android:layout_margin="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/item_post_content_marginBottom"
-        android:background="?attr/selectableItemBackground"
         android:orientation="vertical">
+
+        <!-- Media -->
+        <ImageView
+            android:id="@+id/iv_post_image"
+            android:layout_width="match_parent"
+            android:layout_height="194dp"
+            android:scaleType="centerCrop"
+             />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/item_post_content_padding">
-
-            <ImageView
-                android:id="@+id/iv_post_image"
-                android:layout_width="@dimen/item_post_image_size"
-                android:layout_height="@dimen/item_post_image_size"
-                android:contentDescription="@string/image_contentDescription"
-                android:src="@drawable/ic_post_place_holder"
-                app:civ_border_color="@color/primary_text_color"
-                app:civ_border_width="@dimen/item_post_image_circular_border_width" />
+            android:layout_marginBottom="@dimen/item_post_content_marginBottom"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/item_post_name_layout_marginStart"
-                android:orientation="vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/item_post_content_padding">
 
-                <TextView
-                    android:id="@+id/tv_name"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/primary_text_color"
-                    android:textSize="@dimen/item_post_name_text_size"
-                    tools:text="Post Name" />
+                    android:layout_marginStart="@dimen/item_post_name_layout_marginStart"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tv_created_by"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/secondary_text_color"
-                    android:textSize="@dimen/item_post_created_by_text_size"
-                    tools:text="Created By" />
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/primary_text_color"
+                        android:textSize="@dimen/item_post_name_text_size"
+                        tools:text="Post Name" />
+
+                    <TextView
+                        android:id="@+id/tv_created_by"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/secondary_text_color"
+                        android:textSize="@dimen/item_post_created_by_text_size"
+                        tools:text="Created By" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/ll_give_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_receive_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"></LinearLayout>
+
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_give_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll_receive_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-        </LinearLayout>
-
     </LinearLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView><!--        -->
+    <!--<androidx.cardview.widget.CardView-->
+
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="wrap_content"-->
+    <!--    android:background="@drawable/white_border_shape_button_rounded"-->
+    <!--    android:elevation="@dimen/card_view_elevation"-->
+    <!--    android:layout_marginTop="10dp"-->
+    <!--    android:layout_marginStart="10dp"-->
+    <!--    android:layout_marginEnd="10dp"-->
+    <!--    android:layout_marginBottom="0dp"-->
+    <!--    app:cardCornerRadius="@dimen/card_view_corner_radius">-->
+
+    <!--    -->
+
+    <!--</androidx.cardview.widget.CardView>-->

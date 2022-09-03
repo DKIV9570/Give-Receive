@@ -32,4 +32,8 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
+    <style name="CustomChipChoice" parent="@style/Widget.MaterialComponents.Chip.Choice">
+        <item name="android:textAllCaps">true</item>
+    </style>
+
 </resources>

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.givereceive.R
 import com.example.givereceive.models.Post
+import com.google.android.material.chip.Chip
 import kotlinx.android.synthetic.main.activity_my_profile.*
 import kotlinx.android.synthetic.main.item_post.view.*
 
