@@ -13,9 +13,12 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 
-    <style name="Theme.GiveReceive.NoActionBar">
+    <style name="Theme.GiveReceive.NoActionBar"
+        parent="Theme.MaterialComponents.Light.Bridge">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="chipStyle">@style/Widget.App.Chip</item>
+
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -27,13 +30,19 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="textAppearanceButton">@style/AppTextAppearance.Button</item>
     </style>
+
     <!--To fix rendering in preview -->
     <style name="AppTextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:textAllCaps">true</item>
     </style>
 
-    <style name="CustomChipChoice" parent="@style/Widget.MaterialComponents.Chip.Choice">
-        <item name="android:textAllCaps">true</item>
+    <style name="Widget.App.Chip" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="chipIconTint">@color/shrine_blue_100</item>
+        <item name="chipBackgroundColor">@color/white</item>
+        <item name="chipStrokeWidth">2dp</item>
+        <item name="chipStrokeColor">@color/stroke_tint</item>
+        <item name="checkedIconVisible">false</item>
     </style>
+
 
 </resources>

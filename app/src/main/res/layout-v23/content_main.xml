@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:background="@android:color/white"
         android:elevation="@dimen/card_view_elevation"
-        app:cardCornerRadius="@dimen/card_view_corner_radius">
+        >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_posts_list"

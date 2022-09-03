@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.view.marginStart
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.givereceive.R
 import com.example.givereceive.models.Post
 import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipDrawable
 import kotlinx.android.synthetic.main.activity_my_profile.*
 import kotlinx.android.synthetic.main.item_post.view.*
 
@@ -41,29 +43,15 @@ open class PostItemsAdapter(private val context: Context,
             holder.itemView.tv_created_by.text = "Author: ${model.createdBy}"
 
             for(item in model.giveList){
-                val tag = TextView(holder.itemView.context)
+                val tag = Chip(holder.itemView.context)
                 tag.text = item
-                val layoutParams = LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT
-                )
-                layoutParams.setMargins(10, 10, 10, 10)
-                tag.setPadding(2,2,2,2)
-                tag.setLayoutParams(layoutParams)
                 tag.setBackgroundResource(R.drawable.give_tag)
                 holder.itemView.ll_give_list.addView(tag)
             }
 
             for(item in model.receiveList){
-                val tag = TextView(holder.itemView.context)
+                val tag = Chip(holder.itemView.context)
                 tag.text = item
-                val layoutParams = LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT
-                )
-                layoutParams.setMargins(10, 10, 10, 10)
-                tag.setLayoutParams(layoutParams)
-                tag.setPadding(2,2,2,2)
                 tag.setBackgroundResource(R.drawable.receive_tag)
                 holder.itemView.ll_receive_list.addView(tag)
             }
