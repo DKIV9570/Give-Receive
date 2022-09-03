@@ -29,6 +29,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:text="@string/create"
+        app:backgroundTint="@color/cardview_light_background"
         android:theme="@style/MyMaterialTheme"
         app:icon="@drawable/ic_vector_add_24dp" />
 
@@ -38,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start"
         android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="#5DC5D3"
         android:text="@string/search"
         android:theme="@style/MyMaterialTheme"
         app:icon="@drawable/ic_baseline_search_24" />
