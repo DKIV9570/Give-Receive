@@ -1,11 +1,15 @@
 package com.example.givereceive.activities
 
+import android.opengl.Visibility
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import com.bumptech.glide.Glide
 import com.example.givereceive.R
 import com.example.givereceive.firebase.FirestoreClass
@@ -15,6 +19,9 @@ import com.google.android.material.chip.Chip
 import kotlinx.android.synthetic.main.activity_my_profile.*
 import kotlinx.android.synthetic.main.activity_post_detail.*
 import kotlinx.android.synthetic.main.item_post.view.*
+import java.time.Instant
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 
 class PostDetailActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,21 +42,12 @@ class PostDetailActivity : BaseActivity() {
 
     }
 
-    private fun setupActionBar(title: String){
-        setSupportActionBar(toolbar_post_detail_activity)
-        val actionBar = supportActionBar
-        if(actionBar != null){
-            actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_black_color_back_24dp)
-            actionBar.title = title
-        }
-
-        toolbar_post_detail_activity.setNavigationOnClickListener { onBackPressed() }
-    }
-
+    @RequiresApi(Build.VERSION_CODES.O)
     fun postDetails(post:Post){
         hideProgressDialog()
-        setupActionBar(post.title)
+
+        tv_postdetail_title.text = post.title
+        tv_postdetail_author.text = "Author : ${post.createdBy}"
         Glide
             .with(this)
             .load(post.image)
@@ -71,6 +69,12 @@ class PostDetailActivity : BaseActivity() {
             tag.text = item
             ll_postdetail_receive_list.addView(tag)
         }
+
+        btn_postdetail_share.visibility = View.GONE
+        btn_postdetail_go_back.setOnClickListener{ onBackPressed() }
+
+        tv_postdetail_time.text = post.postTime
+
 
     }
 }

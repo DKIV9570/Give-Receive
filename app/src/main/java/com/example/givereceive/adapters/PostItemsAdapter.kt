@@ -40,7 +40,6 @@ open class PostItemsAdapter(private val context: Context,
                 .into(holder.itemView.iv_post_image)
 
             holder.itemView.tv_name.text = model.title
-            holder.itemView.tv_created_by.text = "Author: ${model.createdBy}"
 
             for(item in model.giveList){
                 val tag = Chip(holder.itemView.context)

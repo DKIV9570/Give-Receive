@@ -5,11 +5,13 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
@@ -22,6 +24,9 @@ import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_create_post.*
 import kotlinx.android.synthetic.main.activity_my_profile.*
 import java.io.IOException
+import java.time.Instant
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -34,6 +39,7 @@ class CreatePostActivity : BaseActivity() {
 
     private var mPostImageURL: String = ""
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
 
         window.setFlags(
@@ -73,7 +79,13 @@ class CreatePostActivity : BaseActivity() {
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun createPost(){
+
+        val formatter = DateTimeFormatter
+            .ofPattern("yyyy-MM-dd HH")
+            .withZone(ZoneOffset.UTC)
+            .format(Instant.now())
 
         var post = Post(
             UUID.randomUUID().toString(),
@@ -84,11 +96,13 @@ class CreatePostActivity : BaseActivity() {
             et_post_content.text.toString(),
             et_give_list.text?.split(",") as ArrayList<String>,
             et_receive_list.text?.split(",") as ArrayList<String>,
+            formatter
         )
 
         FirestoreClass().createPost(this,post)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun uploadPostImage(){
         showProgressDialog(resources.getString(R.string.please_wait))
 

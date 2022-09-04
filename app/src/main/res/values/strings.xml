@@ -47,6 +47,7 @@
 
     <string name="Give_tag">Give Tag</string>
     <string name="Receive_tag">Receive Tag</string>
+    <string name="back">BACK</string>
 
 
 </resources>

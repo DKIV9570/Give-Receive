@@ -49,14 +49,6 @@
                         android:textSize="@dimen/item_post_name_text_size"
                         tools:text="Post Name" />
 
-                    <TextView
-                        android:id="@+id/tv_created_by"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/secondary_text_color"
-                        android:textSize="@dimen/item_post_created_by_text_size"
-                        tools:text="Created By" />
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -65,6 +57,7 @@
                 android:id="@+id/ll_give_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:orientation="horizontal">
 
             </LinearLayout>
@@ -73,6 +66,7 @@
                 android:id="@+id/ll_receive_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:orientation="horizontal" />
 
         </LinearLayout>
