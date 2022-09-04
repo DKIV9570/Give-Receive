@@ -28,9 +28,11 @@ import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_create_post.*
 import java.io.IOException
 import java.time.Instant
+import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.util.*
+import kotlin.properties.Delegates
 
 class CreatePostActivity : BaseActivity(), LocationListener {
 
@@ -44,6 +46,8 @@ class CreatePostActivity : BaseActivity(), LocationListener {
     private lateinit var locationManager: LocationManager
     private val locationPermissionCode = 2
     private lateinit var mLocation: String
+    private var mLatitude : Double = 0.0
+    private var mLongitude: Double = 0.0
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,10 +99,9 @@ class CreatePostActivity : BaseActivity(), LocationListener {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun createPost() {
 
-        val formatter = DateTimeFormatter
-            .ofPattern("yyyy-MM-dd HH")
-            .withZone(ZoneOffset.UTC)
-            .format(Instant.now())
+        val currentTime  = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+        val formatted = currentTime.format(formatter)
 
         var post = Post(
             UUID.randomUUID().toString(),
@@ -109,8 +112,10 @@ class CreatePostActivity : BaseActivity(), LocationListener {
             et_post_content.text.toString(),
             et_give_list.text?.split(",") as ArrayList<String>,
             et_receive_list.text?.split(",") as ArrayList<String>,
-            formatter,
-            mLocation
+            formatted,
+            mLocation,
+            mLatitude,
+            mLongitude
         )
 
         FirestoreClass().createPost(this, post)
@@ -130,9 +135,11 @@ class CreatePostActivity : BaseActivity(), LocationListener {
             )
         }
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5f, this)
+        showProgressDialog(resources.getString(R.string.please_wait))
     }
 
     override fun onLocationChanged(location: Location) {
+        hideProgressDialog()
         val geocoder = Geocoder(this, Locale.getDefault());
 
         val addresses = geocoder.getFromLocation(location.latitude, location.longitude, 1)
@@ -145,6 +152,9 @@ class CreatePostActivity : BaseActivity(), LocationListener {
         val knownName = addresses[0].featureName
 
         mLocation = address
+        mLatitude = location.latitude
+        mLongitude = location.longitude
+
         Toast.makeText(this, mLocation, Toast.LENGTH_LONG).show()
     }
 
