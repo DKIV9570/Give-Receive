@@ -5,7 +5,6 @@ class ToDoList {
     //Todo 1. When editing the user info, it only can be done when all the fields are filled in
     //Todo 2. The giving and receiving list, if it is empty or only have 1 item, will not run properly
     //Todo 3. The order of posts seems to be random
-    //Todo 4. The tags of first and last post would be render several times when slipping
 
 
     // TODO: features:

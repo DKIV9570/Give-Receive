@@ -41,6 +41,9 @@ open class PostItemsAdapter(private val context: Context,
 
             holder.itemView.tv_name.text = model.title
 
+            //remove all the tags before add new one to avoid repeat
+            holder.itemView.ll_give_list.removeAllViews()
+
             for(item in model.giveList){
                 val tag = Chip(holder.itemView.context)
                 tag.text = item
@@ -48,6 +51,7 @@ open class PostItemsAdapter(private val context: Context,
                 holder.itemView.ll_give_list.addView(tag)
             }
 
+            holder.itemView.ll_receive_list.removeAllViews()
             for(item in model.receiveList){
                 val tag = Chip(holder.itemView.context)
                 tag.text = item
