@@ -15,4 +15,6 @@ class ToDoList {
     // todo 7. chatting system
     // todo. My posts with delete button
     // todo. Multiple language support. Chinese. for exp
+    // todo. optimize UI for create post / search page
+    // todo. create post - dynamically add tag
 }
