@@ -12,7 +12,8 @@ data class Post (
     val content: String = "",
     val giveList: ArrayList<String> = ArrayList(),
     val receiveList: ArrayList<String> = ArrayList(),
-    val postTime: String = ""
+    val postTime: String = "",
+    val postAddress: String = ""
 ): Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
@@ -23,6 +24,7 @@ data class Post (
         parcel.readString()!!,
         parcel.createStringArrayList()!!,
         parcel.createStringArrayList()!!,
+        parcel.readString()!!,
         parcel.readString()!!
     ) {
     }
@@ -37,6 +39,7 @@ data class Post (
         writeStringList(giveList)
         writeStringList(receiveList)
         parcel.writeString(postTime)
+        parcel.writeString(postAddress)
     }
 
     override fun describeContents(): Int {
