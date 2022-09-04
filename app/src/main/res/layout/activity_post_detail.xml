@@ -16,7 +16,7 @@
             android:id="@+id/toolbar_post_detail_activity"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/nav_header_main_background"
+            android:background="@drawable/ic_splash_background"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
     </com.google.android.material.appbar.AppBarLayout>
 

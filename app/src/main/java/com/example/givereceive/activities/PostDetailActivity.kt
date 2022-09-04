@@ -11,6 +11,7 @@ import com.example.givereceive.R
 import com.example.givereceive.firebase.FirestoreClass
 import com.example.givereceive.models.Post
 import com.example.givereceive.utils.Constants
+import com.google.android.material.chip.Chip
 import kotlinx.android.synthetic.main.activity_my_profile.*
 import kotlinx.android.synthetic.main.activity_post_detail.*
 import kotlinx.android.synthetic.main.item_post.view.*
@@ -57,32 +58,19 @@ class PostDetailActivity : BaseActivity() {
             .into(iv_postdetail_image)
 
         tv_postdetail_detail.text = post.content
+
+
         for(item in post.giveList){
-            val tag = TextView(this)
+            val tag = Chip(this)
             tag.text = item
-            val layoutParams = LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.MATCH_PARENT
-            )
-            layoutParams.setMargins(10, 10, 10, 10)
-            tag.setPadding(2,2,2,2)
-            tag.setLayoutParams(layoutParams)
-            tag.setBackgroundResource(R.drawable.give_tag)
             ll_postdetail_give_list.addView(tag)
         }
 
         for(item in post.receiveList){
-            val tag = TextView(this)
+            val tag = Chip(this)
             tag.text = item
-            val layoutParams = LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.MATCH_PARENT
-            )
-            layoutParams.setMargins(10, 10, 10, 10)
-            tag.setLayoutParams(layoutParams)
-            tag.setPadding(2,2,2,2)
-            tag.setBackgroundResource(R.drawable.receive_tag)
             ll_postdetail_receive_list.addView(tag)
         }
+
     }
 }
