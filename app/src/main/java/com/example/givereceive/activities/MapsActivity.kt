@@ -1,5 +1,6 @@
 package com.example.givereceive.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
@@ -12,6 +13,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.example.givereceive.databinding.ActivityMapsBinding
+import com.google.android.gms.maps.model.MapStyleOptions
+import kotlinx.android.synthetic.main.activity_maps.*
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -30,8 +33,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
+            .findFragmentById(R.id.post_map_view) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        fab_post_list_view.setOnClickListener{
+            val intent: Intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     /**
@@ -45,7 +53,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
+        mMap.setMapStyle(
+            MapStyleOptions.loadRawResourceStyle(
+                this, R.raw.night_version_map))
         // Add a marker in Sydney and move the camera
         val sydney = LatLng(-34.0, 151.0)
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
