@@ -13,10 +13,14 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.example.givereceive.databinding.ActivityMapsBinding
+import com.example.givereceive.firebase.FirestoreClass
+import com.example.givereceive.models.Post
+import com.example.givereceive.utils.Constants
 import com.google.android.gms.maps.model.MapStyleOptions
+import com.google.android.gms.maps.model.Marker
 import kotlinx.android.synthetic.main.activity_maps.*
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(), GoogleMap.OnMarkerClickListener, OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
@@ -56,9 +60,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.setMapStyle(
             MapStyleOptions.loadRawResourceStyle(
                 this, R.raw.night_version_map))
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+
+        FirestoreClass().renderPostOnMap(this,mMap)
+        mMap.setOnMarkerClickListener(this)
+
     }
+
+    override fun onMarkerClick(marker: Marker): Boolean {
+        val postID = marker.tag?.toString()
+        val intent: Intent = Intent(this,PostDetailActivity::class.java)
+        intent.putExtra(Constants.POST_ID, postID)
+        startActivity(intent)
+        return false
+    }
+
+
 }

@@ -24,6 +24,7 @@ import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 class PostDetailActivity : BaseActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
