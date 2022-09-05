@@ -49,6 +49,8 @@
     <string name="Receive_tag">Receive Tag</string>
     <string name="back">BACK</string>
     <string name="location">Location</string>
+    <string name="title_activity_maps">MapsActivity</string>
+
 
 
 </resources>

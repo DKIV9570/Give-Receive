@@ -61,6 +61,11 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             val intent = Intent(this,SearchActivity::class.java)
             startActivityForResult(intent, SEARCH_REQUEST_CODE)
         }
+
+        fab_change_view.setOnClickListener{
+            val intent = Intent(this,MapsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 
