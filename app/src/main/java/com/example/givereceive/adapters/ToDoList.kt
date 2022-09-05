@@ -8,8 +8,6 @@ class ToDoList {
 
 
     // TODO: features:
-    // todo. add date/time for a post
-    // todo 4. Post location
     // todo 5. share to social media
     // todo 6. Google map view for nearby posts
     // todo 7. chatting system
@@ -17,4 +15,5 @@ class ToDoList {
     // todo. Multiple language support. Chinese. for exp
     // todo. optimize UI for create post / search page
     // todo. create post - dynamically add tag
+    // todo. add "to my location" button on map
 }

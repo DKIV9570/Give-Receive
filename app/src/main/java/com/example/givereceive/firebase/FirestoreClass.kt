@@ -98,7 +98,7 @@ class FirestoreClass {
 //                            .icon(BitmapDescriptorFactory
 //                                .fromResource(R.drawable.attbuh)))
                         marker!!.tag = item.postId
-                        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, 10.0f))
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, 10.0f))
                     }
 
                 }

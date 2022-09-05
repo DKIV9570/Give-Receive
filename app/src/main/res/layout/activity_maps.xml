@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/intro_background"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="@drawable/intro_background"
     tools:context=".activities.PostDetailActivity">
 
     <fragment
@@ -16,15 +16,32 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".activities.MapsActivity">
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/fab_post_list_view"
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|end"
-            android:layout_margin="@dimen/fab_margin"
-            app:backgroundTint="#6E9095"
-            android:theme="@style/MyMaterialTheme"
-            app:icon="@drawable/ic_baseline_view_list_24" />
+            android:orientation="vertical"
+            tools:context=".activities.PostDetailActivity">
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fab_post_list_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:theme="@style/MyMaterialTheme"
+                app:backgroundTint="#6E9095"
+                app:icon="@drawable/ic_baseline_view_list_24" />
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fab_my_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:theme="@style/MyMaterialTheme"
+                app:backgroundTint="#6E9095"
+                app:icon="@drawable/ic_baseline_my_location_24" />
+        </LinearLayout>
     </fragment>
 
 </LinearLayout>

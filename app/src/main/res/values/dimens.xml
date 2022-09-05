@@ -54,7 +54,7 @@
     <dimen name="my_profile_et_mobile_marginTop">20dp</dimen>
     <dimen name="my_profile_btn_update_marginTop">30dp</dimen>
 
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_margin">8dp</dimen>
     <dimen name="create_post_content_padding">16dp</dimen>
     <dimen name="post_image_size">100dp</dimen>
     <dimen name="create_post_til_marginTop">25dp</dimen>
