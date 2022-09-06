@@ -18,7 +18,6 @@ class SearchActivity : BaseActivity() {
         )
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
-        setupActionBar()
 
         btn_search_give.setOnClickListener {
             showProgressDialog(resources.getString(R.string.please_wait))
@@ -29,19 +28,12 @@ class SearchActivity : BaseActivity() {
             showProgressDialog(resources.getString(R.string.please_wait))
             FirestoreClass().searchPostByReceive(this,et_search_receive_list.text.toString())
         }
-    }
 
-    private fun setupActionBar(){
-        setSupportActionBar(toolbar_search_activity)
-        val actionBar = supportActionBar
-        if(actionBar != null){
-            actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_black_color_back_24dp)
-            actionBar.title = resources.getString(R.string.search)
+        btn_search_go_back.setOnClickListener{
+            onBackPressed()
         }
-
-        toolbar_search_activity.setNavigationOnClickListener { onBackPressed() }
     }
+
 
     fun SearchSuccessfully(postList:ArrayList<Post>){
         hideProgressDialog()
