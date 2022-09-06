@@ -3,17 +3,17 @@ package com.example.givereceive.adapters
 class ToDoList {
     // TODO: Bugs:
     //Todo 1. When editing the user info, it only can be done when all the fields are filled in
-    //Todo 2. The giving and receiving list, if it is empty or only have 1 item, will not run properly
     //Todo 3. The order of posts seems to be random
 
 
     // TODO: features:
     // todo 5. share to social media
-    // todo 6. Google map view for nearby posts
     // todo 7. chatting system
     // todo. My posts with delete button
     // todo. Multiple language support. Chinese. for exp
-    // todo. optimize UI for create post / search page
     // todo. create post - dynamically add tag
-    // todo. add "to my location" button on map
+    // todo. Redesign the nav bar of main page
+    // todo. check the necessary field when create post, give alert if empty
+    // todo. Add contact method at post detail page
+    // todo. (change marker on map to a post list, not a single post, to prevent overlay)
 }

@@ -28,8 +28,6 @@ open class BaseActivity : AppCompatActivity() {
 
         mProgressDialog.setContentView(R.layout.dialog_progress)
 
-        mProgressDialog.tv_progress_text.text = text
-
         mProgressDialog.show()
     }
 

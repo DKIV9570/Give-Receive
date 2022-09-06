@@ -13,6 +13,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -91,6 +92,7 @@ class CreatePostActivity : BaseActivity(), LocationListener {
 
         btn_get_location.setOnClickListener {
             getLocation()
+            btn_get_location.visibility = View.GONE
         }
 
         btn_create_post_go_back.setOnClickListener {
@@ -105,7 +107,6 @@ class CreatePostActivity : BaseActivity(), LocationListener {
         val currentTime  = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
         val formatted = currentTime.format(formatter)
-
 
         var post = Post(
             UUID.randomUUID().toString(),
@@ -138,7 +139,7 @@ class CreatePostActivity : BaseActivity(), LocationListener {
                 locationPermissionCode
             )
         }
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5f, this)
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 50000, 5f, this)
         showProgressDialog(resources.getString(R.string.please_wait))
     }
 
@@ -149,11 +150,11 @@ class CreatePostActivity : BaseActivity(), LocationListener {
         val addresses = geocoder.getFromLocation(location.latitude, location.longitude, 1)
         val address: String = addresses[0]
             .getAddressLine(0)
-        val city: String = addresses[0].locality
-        val state: String = addresses[0].adminArea
-        val country: String = addresses[0].countryName
-        val postalCode = addresses[0].postalCode
-        val knownName = addresses[0].featureName
+//        val city: String = addresses[0].locality
+//        val state: String = addresses[0].adminArea
+//        val country: String = addresses[0].countryName
+//        val postalCode = addresses[0].postalCode
+//        val knownName = addresses[0].featureName
 
         mLocation = address
         mLatitude = location.latitude

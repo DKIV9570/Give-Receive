@@ -6,19 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:theme="@style/AppTheme.AppBarOverlay">-->
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_main_activity"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/ic_splash_background"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/toolbar_main_activity"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?attr/actionBarSize"-->
+<!--            android:background="@drawable/ic_splash_background"-->
+<!--            app:popupTheme="@style/AppTheme.PopupOverlay" />-->
 
-    </com.google.android.material.appbar.AppBarLayout>
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
 
     <include layout="@layout/content_main" />
 
@@ -46,11 +46,12 @@
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_change_view"
-        android:layout_width="wrap_content"
+        android:layout_width="105dp"
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
         android:layout_margin="@dimen/fab_margin"
-        app:backgroundTint="#5DC5D3"
+        android:text="@string/map"
+        app:backgroundTint="#CFF9FF"
         android:theme="@style/MyMaterialTheme"
         app:icon="@drawable/ic_baseline_map_24" />
 

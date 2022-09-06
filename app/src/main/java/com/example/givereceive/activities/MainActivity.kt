@@ -45,7 +45,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setupActionBar()
+//        setupActionBar()
         nav_view.setNavigationItemSelectedListener(this)
 
         FirestoreClass().loadUserData(this,true)
@@ -96,13 +96,13 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         }
     }
 
-    private fun setupActionBar(){
-        setSupportActionBar(toolbar_main_activity)
-        toolbar_main_activity.setNavigationIcon(R.drawable.ic_action_navigation_menu)
-        toolbar_main_activity.setNavigationOnClickListener {
-            toggleDrawer()
-        }
-    }
+//    private fun setupActionBar(){
+//        setSupportActionBar(toolbar_main_activity)
+//        toolbar_main_activity.setNavigationIcon(R.drawable.ic_action_navigation_menu)
+//        toolbar_main_activity.setNavigationOnClickListener {
+//            toggleDrawer()
+//        }
+//    }
 
     private fun toggleDrawer(){
         if(drawer_layout.isDrawerOpen(GravityCompat.START)){
