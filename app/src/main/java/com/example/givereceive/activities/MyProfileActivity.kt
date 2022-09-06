@@ -41,8 +41,6 @@ class MyProfileActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_profile)
 
-        setupActionBar()
-
         FirestoreClass().loadUserData(this)
 
         iv_profile_user_image.setOnClickListener {
@@ -63,6 +61,10 @@ class MyProfileActivity : BaseActivity() {
                 showProgressDialog(resources.getString(R.string.please_wait))
                 updateUserProfileData()
             }
+        }
+
+        btn_profile_go_back.setOnClickListener{
+            onBackPressed()
         }
     }
 
@@ -99,18 +101,6 @@ class MyProfileActivity : BaseActivity() {
             }
 
         }
-    }
-
-    private fun setupActionBar(){
-        setSupportActionBar(toolbar_my_profile_activity)
-        val actionBar = supportActionBar
-        if(actionBar != null){
-            actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_black_color_back_24dp)
-            actionBar.title = resources.getString(R.string.my_profile)
-        }
-
-        toolbar_my_profile_activity.setNavigationOnClickListener { onBackPressed() }
     }
 
     fun setUserDataInUI(user: User){
