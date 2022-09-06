@@ -50,7 +50,8 @@
     <string name="back">BACK</string>
     <string name="location">Location</string>
     <string name="title_activity_maps">MapsActivity</string>
-
+    <string name="give_helper_text">Specialties you want to teach others, Separate by comma</string>
+    <string name="receive_helper_text">Specialties you want to learn from others, Separate by comma</string>
 
 
 </resources>

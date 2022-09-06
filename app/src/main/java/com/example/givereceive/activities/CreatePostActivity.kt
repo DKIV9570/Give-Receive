@@ -58,7 +58,6 @@ class CreatePostActivity : BaseActivity(), LocationListener {
         )
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_post)
-        setupActionBar()
 
         if (intent.hasExtra(Constants.NAME)) {
             mUserName = intent.getStringExtra(Constants.NAME).toString()
@@ -93,6 +92,10 @@ class CreatePostActivity : BaseActivity(), LocationListener {
         btn_get_location.setOnClickListener {
             getLocation()
         }
+
+        btn_create_post_go_back.setOnClickListener {
+            onBackPressed()
+        }
     }
 
 
@@ -103,6 +106,7 @@ class CreatePostActivity : BaseActivity(), LocationListener {
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
         val formatted = currentTime.format(formatter)
 
+
         var post = Post(
             UUID.randomUUID().toString(),
             mUserID,
@@ -110,8 +114,8 @@ class CreatePostActivity : BaseActivity(), LocationListener {
             mPostImageURL,
             mUserName,
             et_post_content.text.toString(),
-            et_give_list.text?.split(",") as ArrayList<String>,
-            et_receive_list.text?.split(",") as ArrayList<String>,
+            et_give_list.text!!.split(","),
+            et_receive_list.text!!.split(","),
             formatted,
             mLocation,
             mLatitude,
@@ -208,18 +212,6 @@ class CreatePostActivity : BaseActivity(), LocationListener {
 
         setResult(Activity.RESULT_OK)
         finish()
-    }
-
-    private fun setupActionBar() {
-        setSupportActionBar(toolbar_create_post_activity)
-        val actionBar = supportActionBar
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true)
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_black_color_back_24dp)
-            actionBar.title = resources.getString(R.string.create_Post_title)
-        }
-
-        toolbar_create_post_activity.setNavigationOnClickListener { onBackPressed() }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
