@@ -25,7 +25,7 @@
             <ImageView
                 android:id="@+id/iv_postdetail_image"
                 android:layout_width="match_parent"
-                android:layout_height="194dp"
+                android:layout_height="@dimen/image_width_main"
                 android:contentDescription="@string/image_contentDescription"
                 android:scaleType="centerCrop" />
 

@@ -77,5 +77,6 @@
     <dimen name="post_detail_image_size">200dp</dimen>
     <dimen name="create_button_size">120dp</dimen>
     <dimen name="btn_text_size_small">14dp</dimen>
+    <dimen name="image_width_main">250dp</dimen>
 
 </resources>
