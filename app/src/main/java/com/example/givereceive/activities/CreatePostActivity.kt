@@ -12,6 +12,7 @@ import android.location.LocationManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
@@ -46,7 +47,8 @@ class CreatePostActivity : BaseActivity(), LocationListener {
 
     private lateinit var locationManager: LocationManager
     private val locationPermissionCode = 2
-    private lateinit var mLocation: String
+    private var mContent: String = "Silence is a virtue"
+    private var mLocation: String = "Private"
     private var mLatitude : Double = 0.0
     private var mLongitude: Double = 0.0
 
@@ -85,7 +87,6 @@ class CreatePostActivity : BaseActivity(), LocationListener {
             if (mSelectedImageFileUri != null) {
                 uploadPostImage()
             } else {
-                showProgressDialog(resources.getString(R.string.please_wait))
                 createPost()
             }
         }
@@ -108,22 +109,49 @@ class CreatePostActivity : BaseActivity(), LocationListener {
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
         val formatted = currentTime.format(formatter)
 
-        var post = Post(
-            UUID.randomUUID().toString(),
-            mUserID,
-            et_post_title.text.toString(),
-            mPostImageURL,
-            mUserName,
-            et_post_content.text.toString(),
-            et_give_list.text!!.split(","),
-            et_receive_list.text!!.split(","),
-            formatted,
-            mLocation,
-            mLatitude,
-            mLongitude
-        )
+        if(et_post_content.text?.isNotEmpty() == true){
+            mContent = et_post_content.text.toString()
+        }
 
-        FirestoreClass().createPost(this, post)
+        if(validateForm(et_post_title.text.toString()
+                ,et_give_list.text.toString()
+                ,et_receive_list.text.toString())) {
+            var post = Post(
+                UUID.randomUUID().toString(),
+                mUserID,
+                et_post_title.text.toString(),
+                mPostImageURL,
+                mUserName,
+                mContent,
+                et_give_list.text!!.split(","),
+                et_receive_list.text!!.split(","),
+                formatted,
+                mLocation,
+                mLatitude,
+                mLongitude
+            )
+            FirestoreClass().createPost(this, post)
+            showProgressDialog(resources.getString(R.string.please_wait))
+        }
+    }
+
+    private fun validateForm(title:String, giveList:String, receiveList:String):Boolean{
+        return when {
+            TextUtils.isEmpty(title)->{
+                showErrorSnackBar("Please enter a title")
+                false
+            }
+            TextUtils.isEmpty(giveList)->{
+                showErrorSnackBar("Please enter at least one speciality to give")
+                false
+            }
+            TextUtils.isEmpty(receiveList)->{
+                showErrorSnackBar("Please enter at least one speciality to receive")
+                false
+            }else->{
+                true
+            }
+        }
     }
 
     private fun getLocation() {
@@ -180,7 +208,6 @@ class CreatePostActivity : BaseActivity(), LocationListener {
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun uploadPostImage() {
-        showProgressDialog(resources.getString(R.string.please_wait))
 
         val sRef: StorageReference = FirebaseStorage.getInstance().reference.child(
             "POST_IMAGE" + System.currentTimeMillis()
@@ -194,7 +221,6 @@ class CreatePostActivity : BaseActivity(), LocationListener {
             taskSnapshot.metadata!!.reference!!.downloadUrl.addOnSuccessListener { uri ->
                 Log.i("Downloadable Image URL", uri.toString())
                 mPostImageURL = uri.toString()
-
                 createPost()
             }
         }.addOnFailureListener { exception ->
@@ -203,8 +229,6 @@ class CreatePostActivity : BaseActivity(), LocationListener {
                 exception.message,
                 Toast.LENGTH_LONG
             ).show()
-
-            hideProgressDialog()
         }
     }
 

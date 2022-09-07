@@ -91,14 +91,16 @@ class FirestoreClass {
                 }
                 if (activity is MapsActivity) {
                     for (item in postList) {
-                        val pos = LatLng(item.postLatitude, item.postLongitude)
-                        val marker = mMap.addMarker(MarkerOptions()
-                            .position(pos)
-                            .title(item.title))
+                        if(item.postAddress !== R.string.Private.toString()){
+                            val pos = LatLng(item.postLatitude, item.postLongitude)
+                            val marker = mMap.addMarker(MarkerOptions()
+                                .position(pos)
+                                .title(item.title))
 //                            .icon(BitmapDescriptorFactory
 //                                .fromResource(R.drawable.attbuh)))
-                        marker!!.tag = item.postId
-                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, 10.0f))
+                            marker!!.tag = item.postId
+                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pos, 10.0f))
+                        }
                     }
 
                 }

@@ -53,6 +53,8 @@
     <string name="give_helper_text">Specialties you want to teach others, Separate by comma</string>
     <string name="receive_helper_text">Specialties you want to learn from others, Separate by comma</string>
     <string name="map">MAP</string>
+    <string name="Private">Private</string>
+    <string name="default_content">Silence is a virtue</string>
 
 
 </resources>
